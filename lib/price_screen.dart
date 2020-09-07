@@ -49,19 +49,11 @@ class _PriceScreenState extends State<PriceScreen> {
             alignment: Alignment.center,
             padding: EdgeInsets.only(bottom: 30.0),
             color: Colors.lightBlue,
-            child: getPicer(),
+            child: Platform.isIOS ? iOSPicker() : androidDropdown(),
           ),
         ],
       ),
     );
-  }
-
-  Widget getPicer() {
-    if (Platform.isIOS) {
-      return iOSPicker();
-    } else {
-      return androidDropdown();
-    }
   }
 
   CupertinoPicker iOSPicker() {
